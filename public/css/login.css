@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+body{
+    background-image: url(/img/背景.jpg);
+}
+.wrapper{
+    width: 420px;
+    height: 500px;
+    background-color: rgba(61,157,247,1.00);
+    margin: 100px auto;
+}
+.wrapper .nva{
+    font-size: 35px;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 20px;
+}
+.wrapper .nva span{
+    cursor: pointer;
+    color:white;
+}
+.reguser{
+    display: none;
+}
+.text{
+    width: 320px;
+    height: 40px;
+}
+.reguser .cen{
+    display: flex;
+    justify-content: center;
+}
+.reguser p{
+    margin-top: 25px;
+}
+.sex{
+    display: flex;
+    align-items: center;
+}
+.login .dl{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}

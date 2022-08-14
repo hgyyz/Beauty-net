@@ -1,0 +1,25 @@
+{
+  "name": "boy_girl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.6",
+    "express-session": "^1.17.2",
+    "express": "^4.17.2",
+    "joi": "^17.5.0",
+    "multer": "^1.4.4",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.15",
+    "svg-captcha": "^1.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

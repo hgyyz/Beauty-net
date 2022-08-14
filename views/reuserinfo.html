@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改信息</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <script src="/js/bootstrap.js"></script>
+    <style>
+      input{
+        width: 22%;
+        height: 40px;
+        font-size: 18px;
+        margin: 10px 20px;
+      }
+      #sub p{
+        display: flex;
+        justify-content: center;
+      }
+      #tj{
+        width: 55%;
+      }
+      span{
+        line-height: 60px;
+        font-size: 20px;
+        color: white;
+      }
+      .head-content{
+        font-size: 12px;
+      }
+    </style>
+</head>
+
+<body class="bg-dark">
+            <%- include('header.html') %>
+          <form action="/index/douserinfo" method="post" id="sub" enctype="multipart/form-data">
+              <p style="color: white;"><span>头像</span><input style="width: 50%;" type="file" placeholder="头像" name="headPic" value="<%= headPic %>"></p>
+              <p><span>昵称：</span><input type="text" placeholder="昵称(必填)" name="nickname" value="<%= nickname %>">
+                <span>微信：</span><input type="text" placeholder="微信(必填)" name="wx" value="<%= wx %>"></p>
+              <p><span>爱好：</span><input type="text" placeholder="爱好" name="hobby" value="<%= hobby %>">
+                <span>QQ：</span><input type="text" placeholder="QQ" name="qq" value="<%= qq %>"></p>
+              <p><span>城市：</span><input type="text" placeholder="城市" name="city" value="<%= city %>">
+                <span>年龄：</span><input type="text" placeholder="年龄" name="age" value="<%= age %>"></p>
+              <p><span>性格：</span><input type="text" placeholder="性格" name="character" value="<%= character %>">
+              <span>签名：</span><input type="text" placeholder="签名(必填)" name="signature" value="<%= signature %>"></p>
+              <p><span>星座：</span><input type="text" placeholder="星座" name="constellation" value="<%= constellation %>">
+              <span>类型：</span><input type="text" placeholder="类型" name="like" value="<%= like %>"></p>
+              <p><span>昵称：</span><input type="text" placeholder="学校" name="school" value="<%= school %>">
+              <span>手机：</span><input type="text" placeholder="手机" name="phone" value="<%= phone %>"></p>
+              <p><span>职业：</span><input type="text" placeholder="职业" name="occupation" value="<%= occupation %>">
+              <span>专业：</span><input type="text" placeholder="在校专业" name="major" value="<%= major %>"></p>
+              <p><input type="submit" id="tj"></p>
+          </form>
+          <script>
+
+          </script>
+</body>
+</html>

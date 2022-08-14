@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>友友精选</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <script src="/js/bootstrap.js"></script>
+    <style>
+      /* 清除滚动条样式，但能滚动 */
+      ::-webkit-scrollbar {
+        display: none; /* Chrome Safari */
+      }
+    </style>
+<body>
+      <%- include('header.html') %>
+      <!-- 轮播 -->
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+ 
+    <!-- 指示符 -->
+   <div class="carousel-indicators">
+     <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+     <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+     <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+   </div>
+   
+   <!-- 轮播图片 -->
+   <div class="carousel-inner">
+     <div class="carousel-item active">
+       <img src="/img/lb-1.jpg" class="d-block" style="width:100%">
+     </div>
+     <div class="carousel-item">
+       <img src="/img/lb-2.jpg" class="d-block" style="width:100%">
+     </div>
+     <div class="carousel-item">
+       <img src="/img/lb-3.jpg" class="d-block" style="width:100%">
+     </div>
+   </div>
+   
+   <!-- 左右切换按钮 -->
+   <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+     <span class="carousel-control-prev-icon"></span>
+   </button>
+   <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+     <span class="carousel-control-next-icon"></span>
+   </button>
+ </div>
+ <div class="row">
+    <div class="col-sm-8 p-3 bg-dark text-white ">
+        <div style="height: 500px;" class="dropdown overflow-hidden">
+            <div class="container mt-3">
+                <ul class="nav nav-pills" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" data-bs-toggle="pill" href="#home">新图特供</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="pill" href="#menu1">本周精选</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="pill" href="#menu2">美女热榜</a>
+                  </li>
+                </ul>
+
+                <div class="tab-content">
+                  <div id="home" class="container tab-pane active"><br>
+                    <img src="/img/girl_01.jpeg" alt="" class="img-fluid" style="width: 180px;height: 200px;">
+                    <span style="display: inline-block;max-width: 700px;vertical-align:top"><h4>《靓仔介绍》</h4>一双漆黑清澈的大眼睛，柔软饱满的红唇，娇俏玲珑的小瑶鼻秀秀气气地生在她那美丽清纯、文静典雅的绝色娇靥上，再加上她那线条优美细滑的香腮，吹弹得破的粉脸，活脱脱一个国色天香的`绝代美人。</span>
+                    <img src="/img/girl_02.jpeg" alt="" class="img-fluid mt-5 p-lg-4 d-none d-sm-inline-block" style="width: 180px;height: 200px;margin-left: -20px;">
+                    <img src="/img/girl_03.jpeg" alt="" class="img-fluid mt-5 p-lg-4 d-none d-sm-inline-block" style="width: 180px;height: 200px;">
+                    <img src="/img/girl_04.jpeg" alt="" class="img-fluid mt-5 p-lg-4 d-none d-sm-inline-block" style="width: 180px;height: 200px;">
+                    <img src="/img/girl_05.jpeg" alt="" class="img-fluid mt-5 p-lg-4 d-none d-sm-inline-block" style="width: 180px;height: 200px;">
+                    <img src="/img/girl_06.jpeg" alt="" class="img-fluid mt-5 p-lg-4 d-none d-sm-inline-block" style="width: 180px;height: 200px;">
+                  </div>
+                  <div id="menu1" class="container tab-pane fade"><br>
+                    <img src="/img/girl_07.jpeg" alt="" class="img-fluid" style="width: 180px;height: 200px;">
+                    <span style="display: inline-block;max-width: 700px;vertical-align:top"><h4>《靓仔介绍》</h4>挑眉淡扫如远山，凤眉明眸，顾盼流离间皆是勾魂摄魄，玲珑腻鼻，肤若白雪，朱唇一点更似雪中一点红梅孤傲妖冶，简直活脱脱一个从锦画中走出的人间仙子。</span>
+                    <img src="/img/girl_02.jpeg" alt="" class="img-fluid mt-5 p-lg-4 d-none d-sm-inline-block" style="width: 180px;height: 200px;margin-left: -20px;">
+                    <img src="/img/girl_09.jpeg" alt="" class="img-fluid mt-5 p-lg-4 d-none d-sm-inline-block" style="width: 180px;height: 200px;">
+                    <img src="/img/girl_06.jpeg" alt="" class="img-fluid mt-5 p-lg-4 d-none d-sm-inline-block" style="width: 180px;height: 200px;">
+                    <img src="/img/girl_05.jpeg" alt="" class="img-fluid mt-5 p-lg-4 d-none d-sm-inline-block" style="width: 180px;height: 200px;">
+                    <img src="/img/girl_03.jpeg" alt="" class="img-fluid mt-5 p-lg-4 d-none d-sm-inline-block" style="width: 180px;height: 200px;">
+                  </div>
+                  <div id="menu2" class="container tab-pane fade"><br>
+                    <img src="/img/girl_04.jpeg" alt="" class="img-fluid" style="width: 180px;height: 200px;">
+                    <span style="display: inline-block;max-width: 700px;vertical-align:top"><h4>《靓仔介绍》</h4>那小姐相貌娇美，肤色白腻，别说北地罕有如此佳丽，即令江南也极为少有.她身穿一件葱绿织锦的皮袄，颜色甚是鲜艳，但在她容光映照之下，再灿烂的锦缎也已显得黯然无色。</span>
+                    <img src="/img/girl_08.jpeg" alt="" class="img-fluid mt-5 p-lg-4 d-none d-sm-inline-block" style="width: 180px;height: 200px;margin-left: -20px;">
+                    <img src="/img/girl_09.jpeg" alt="" class="img-fluid mt-5 p-lg-4 d-none d-sm-inline-block" style="width: 180px;height: 200px;">
+                    <img src="/img/girl_05.jpeg" alt="" class="img-fluid mt-5 p-lg-4 d-none d-sm-inline-block" style="width: 180px;height: 200px;">
+                    <img src="/img/girl_04.jpeg" alt="" class="img-fluid mt-5 p-lg-4 d-none d-sm-inline-block" style="width: 180px;height: 200px;">
+                    <img src="/img/girl_06.jpeg" alt="" class="img-fluid mt-5 p-lg-4 d-none d-sm-inline-block" style="width: 180px;height: 200px;">
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="col-sm-4 p-3 text-white " style="background-color: rgb(128, 66, 43);">
+        <h1 style="margin-left: 22px;">排行榜<span style="font-size: 12px;">(根据点赞数)</span></h1>
+        <div class="container mt-3" style="overflow: scroll;height: 500px;overflow-x:hidden;scrollbar-width: none;-ms-overflow-style: none;">
+            <div id="accordion" style="color: black;" >
+                <% for(var i = 0;i < results.length;i++){ %>
+                  <div class="card">
+                    <div class="card-header">
+                        <a class="btn" data-bs-toggle="collapse" href="#collapse<%= i %>">
+                          <%= i+1+'.'+results[i].nickname %>
+                        </a>
+                    </div>
+                    <div id="collapse<%= i %>" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body">
+                          签名：<%= results[i].signature %>
+                        </div>
+                    </div>
+                  <% } %>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

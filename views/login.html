@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8"/>
+    <title>登录注册</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            background-image: url(/img/背景.jpg);
+            background-size: 200vh 100vh;
+        }
+        .wrapper{
+            width: 420px;
+            height: 500px;
+            background-color: rgba(61,157,247,1.00);
+            margin: 100px auto;
+            box-shadow: 1px 1px 20px black;
+            border-radius: 5px;
+        }
+        @media screen and (min-width:320px) and (max-width:770px) {
+                .wrapper{
+                width: 350px;
+                height: 500px;
+                background-color: rgba(61,157,247,0.9);
+                margin: 55px auto;
+                box-shadow: 1px 1px 20px black;
+                border-radius: 5px;
+            }
+        }
+        .wrapper .nva{
+            font-size: 35px;
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding-top: 20px;
+        }
+        .wrapper .nva span{
+            cursor: pointer;
+            color:white;
+        }
+        .reguser{
+            display: none;
+        }
+        .text{
+            width: 320px;
+            height: 40px;
+        }
+        .reguser .cen{
+            display: flex;
+            justify-content: center;
+        }
+        .reguser p{
+            margin-top: 25px;
+        }
+        .sex{
+            display: flex;
+            align-items: center;
+        }
+        .login .dl{
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        .err{
+            color: red;
+            font-size: 10px;
+        }
+        #verify{
+            height: 40px;
+        }
+        #be{
+            position: relative;
+            width: 120px;
+            height: 40px;
+            opacity: 0;
+            top: -42px;
+            left: 260px;
+            cursor: pointer;
+        }
+        #login{
+            margin-top: 0px;
+        }
+        input{
+            font-size: 18px;
+        }
+        .light:active{
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="nva">
+            <span id="loBtn" class="light">登录</span>
+            <span id="reBtn" class="light">注册</span>
+        </div>
+        <div class="reguser" id="re">
+            <form action="/index/register" method="POST">
+                <p class="cen"><input type="text" name="username" placeholder="用户名" class="text"/></p>
+                <p class="cen"><input type="text" name="email" placeholder="邮箱" class="text"/></p>
+                <div class="cen">
+                    <div class="text sex" >
+                        性别：
+                        <input type="radio" name="sex" value="boy"/>男
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="sex" value="girl"/> 女
+                    </div> 
+                </div>
+                <p class="cen" style="margin-top: 0px;"><input type="text" name="password" placeholder="密码" class="text"/></p>
+                <p class="cen"><input type="text" placeholder="再次输入密码" name="repassword" class="text"/></p>
+                <p class="cen"><input type="submit" value="注册" class="text"/></p>
+            </form>
+        </div>
+        <div class="login" id="lo">
+            <form action="/index/dologin" method="post">
+                <p class="dl"><input type="text" placeholder="用户名" class="text" name="username"/></p>
+                <p class="dl"><input type="text" placeholder="密码" class="text" name="password"/></p>
+                <p class="dl" id="b"><input type="text" placeholder="验证码" class="text" name="verify" style="width: 200px;"/>
+                    <img src="/index/captcha" alt="" id="verify">
+                </p>
+                <div id="be"></div>
+                <p class="dl" id="login"><input type="submit" value="登录" class="text"/></p>
+                
+            </form>
+        </div>
+    </div>
+    
+    <script>
+       var getId = function(d){
+           return document.getElementById(d);
+       }
+       getId('reBtn').onclick = function(){
+           getId('re').style.display = 'block';
+           getId('lo').style.display = 'none';
+       }
+       getId('loBtn').onclick = function(){
+           getId('lo').style.display = 'block';
+           getId('re').style.display = 'none';
+       }
+
+       const b = document.getElementById('b')
+       const be = document.getElementById('be')
+        be.addEventListener('click',function(){
+            //1. 创建对象
+            const xhr = new XMLHttpRequest();
+            //超时设置 2s 设置
+            xhr.timeout = 2000;
+            //超时回调
+            xhr.ontimeout = function(){
+                alert('网络异常，请稍后重试')
+            }
+            //网络异常问题
+            xhr.onerror = function(){
+                alert('你的网络似乎出了一些问题')
+            }
+         
+            //2. 初始化 设置请求方法和 url   加个Date.now()可以解决IE缓存问题
+            xhr.open('GET', '/index/captcha');
+            //设置请求头
+            //预定义
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+            //3. 发送
+            xhr.send();
+            //4. 事件绑定 处理服务端返回的结果
+            xhr.onreadystatechange = function(){
+                //判断响应状态码 200 404 403 401 500
+                //2xx 成功
+                if(xhr.readyState === 4){
+                        if(xhr.status >= 200 && xhr.status < 300){
+                        b.innerHTML = '<input type="text" placeholder="验证码" class="text" name="verify" style="width: 200px;"/>'
+                    +'<img src="/index/captcha" alt="" id="verify">'
+                    }else{
+
+                    }
+                }
+                
+            }
+        })
+
+
+    </script>
+</body>
+</html>

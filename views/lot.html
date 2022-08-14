@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今日缘分</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <script src="/js/bootstrap.js"></script>
+    <style>
+        .wrapper{
+            margin-top: 200px;
+            display: flex;
+            justify-content: center;
+        }
+        .wrapper .content{
+            display: flex;
+            justify-content: center;
+            color: white;
+            font-size: 80px;
+        }
+        .wrapper .start{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+  <%- include('header.html') %>
+      <div class="wrapper">
+          <div class="content" id="name">start</div>
+      </div>
+      <div class="wrapper">
+        <div class="start">
+            <button class="btn btn-primary" type="button" id="start">开始邂逅</button>
+          </div>
+      </div>
+      <script>
+      const start = document.getElementById('start');
+      const name = document.getElementById('name');
+    
+        start.addEventListener('click',function(){
+            var a = 10;
+            var timer = setInterval(function(){
+                a--;
+                name.innerHTML = a;
+            },200)
+            setTimeout(function(){
+                clearInterval(timer)
+            },2000)
+            //1. 创建对象
+            const xhr = new XMLHttpRequest();
+            //网络异常问题
+            xhr.onerror = function(){
+                alert('你的网络似乎出了一些问题')
+            }
+            //2. 初始化 设置请求方法和 url   加个Date.now()可以解决IE缓存问题
+            xhr.open('POST', '/index/dolot');
+            //设置请求头
+            //预定义
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+            //自定义
+            xhr.setRequestHeader('name','laohuang');
+            //3. 发送
+            xhr.send('a=100&b=200');
+            //4. 事件绑定 处理服务端返回的结果
+            xhr.onreadystatechange = function(){
+                //判断响应状态码 200 404 403 401 500
+                //2xx 成功
+                if(xhr.readyState === 4){
+                        if(xhr.status >= 200 && xhr.status < 300){
+                            const obj = eval('('+ xhr.response +')')
+                            setTimeout(function(){
+                                name.innerHTML = '<span>'+obj.name+'</span>'
+                            },2000)
+                    }else{
+
+                    }
+                }
+                
+            }
+        })
+    </script>
+</body>
+</html>
